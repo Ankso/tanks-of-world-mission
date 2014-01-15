@@ -1,0 +1,8 @@
+author = "[SGC] Ankso";
+OnLoadName = "Tanks of World Beta v1.1.2";
+OnLoadMission = "WWII tanks engaged in a fierce battle.";
+onLoadMissionTime = 1;
+respawn = "BASE";
+respawnDelay = 10;
+respawnDialog = true;
+disabledAI = 1;
