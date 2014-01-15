@@ -14,27 +14,27 @@ class Params
 		title = "Maximun objective capture distance (meters)";
 		values[] = {500, 200, 100, 50, 25, 10};
 		texts[] = {"500","200", "100", "50", "25", "10"};
-		default = 2;
+		default = 100;
 	};
 	class ObjectivePoints
 	{
 		title = "Maximun objective points/time to capture (seconds)";
 		values[] = {300, 200, 120, 100, 60, 50, 30, 20, 10};
 		texts[] = {"300", "200", "120", "100", "60", "50", "30", "20", "10"};
-		default = 3;
+		default = 100;
 	};
 	class MaxTeamTickets
 	{
 		title = "Maximun number of tickets per team";
 		values[] = {2000, 1500, 1000, 750, 500, 250, 100};
 		texts[] = {"2000", "1500", "1000", "750", "500", "250", "100"};
-		default = 3;
+		default = 1000;
 	};
 	class Duration
 	{
 		title = "Maximun game duration";
 		values[] = {7200, 3600, 2400, 1800, 1200, 900, 600};
 		texts[] = {"Two hours", "One hour", "40 mins", "30 mins", "20 mins", "15 mins", "10 mins"};
-		default = 1;
+		default = 3600;
 	};
 };
