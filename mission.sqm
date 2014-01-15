@@ -14,7 +14,7 @@ class Mission
 		"mcn_neaville_winter",
 		"ca_modules_functions",
 		"cawheeled_e_suv",
-		"I44_base_Dialogs",
+		"I44_base_Dialogs"
 	};
 	addOnsAuto[]=
 	{
@@ -480,10 +480,10 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=103;
+		items=107;
 		class Item0
 		{
-			position[]={2399.53,40.421871,4043.2266};
+			position[]={2401.467,40.297268,4043.3186};
 			azimut=91.346703;
 			id=2;
 			side="EMPTY";
@@ -494,7 +494,7 @@ class Mission
 		};
 		class Item1
 		{
-			position[]={2399.5593,40.532715,4047.9255};
+			position[]={2401.3118,40.417728,4047.925};
 			azimut=91.346703;
 			id=3;
 			side="EMPTY";
@@ -711,7 +711,7 @@ class Mission
 		};
 		class Item22
 		{
-			position[]={2905.8772,52.65675,968.05908};
+			position[]={2904.1101,52.900597,967.96417};
 			azimut=274.022;
 			id=24;
 			side="EMPTY";
@@ -722,7 +722,7 @@ class Mission
 		};
 		class Item23
 		{
-			position[]={2905.6311,52.48225,963.40527};
+			position[]={2903.864,52.726055,963.31036};
 			azimut=274.022;
 			id=25;
 			side="EMPTY";
@@ -1532,6 +1532,50 @@ class Mission
 			vehicle="Land_fort_bagfence_round";
 			lock="LOCKED";
 			skill=0.60000002;
+		};
+		class Item103
+		{
+			position[]={2395.7932,40.705566,4043.365};
+			azimut=91.346703;
+			id=126;
+			side="EMPTY";
+			vehicle="I44_Tank_G_PzKpfwII_F_WH";
+			skill=0.60000002;
+			text="extraLightAxisVehicle1_1";
+			init="this setVariable [""bake_vrs_settings"", [2, 2]]";
+		};
+		class Item104
+		{
+			position[]={2395.8225,40.823826,4048.064};
+			azimut=91.346703;
+			id=127;
+			side="EMPTY";
+			vehicle="I44_Tank_G_PzKpfwII_F_WH";
+			skill=0.60000002;
+			text="extraLightAxisVehicle2_1";
+			init="this setVariable [""bake_vrs_settings"", [2, 2]]";
+		};
+		class Item105
+		{
+			position[]={2909.7351,52.094574,967.60101};
+			azimut=274.022;
+			id=128;
+			side="EMPTY";
+			vehicle="I44_Tank_A_M5A1_Stuart_Army";
+			skill=0.60000002;
+			text="extraLightAlliesVehicle1_1";
+			init="this setVariable [""bake_vrs_settings"", [2, 2]]";
+		};
+		class Item106
+		{
+			position[]={2909.489,51.920033,962.9472};
+			azimut=274.022;
+			id=129;
+			side="EMPTY";
+			vehicle="I44_Tank_A_M5A1_Stuart_Army";
+			skill=0.60000002;
+			text="extraLightAlliesVehicle2_1";
+			init="this setVariable [""bake_vrs_settings"", [2, 2]]";
 		};
 	};
 	class Markers
