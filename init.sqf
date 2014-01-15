@@ -8,8 +8,10 @@
  * @url http://www.steelgamers.es
  ******************************************/
 
-execVM "shared\SharedDefines.sqf";
-execVM "shared\Strings.sqf";
+_handle = [] execVM "shared\SharedDefines.sqf";
+waitUntil { scriptDone _handle };
+_handle = [] execVM "shared\Strings.sqf";
+waitUntil { scriptDone _handle };
 // Client initialization
 execVM "client\init.sqf";
 

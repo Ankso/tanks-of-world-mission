@@ -74,14 +74,14 @@ while {true} do
 				if (_opforCount > _bluforCount) then
 				{
 					// Broadcast "Under attack" message only if it wasn't previously under attack and the attacker is not the owner
-					if ((objectivesStatus select _i) != STATUS_UNDER_OPFOR_ATTACK && (objectivesControl select _i) != OBJECTIVE_BLUFOR_CONTROLLED) then {
+					if ((objectivesStatus select _i) != STATUS_UNDER_OPFOR_ATTACK && ((objectivesControl select _i) == OBJECTIVE_BLUFOR_CONTROLLED || (objectivesControl select _i) == OBJECTIVE_NOT_CONTROLLED)) then {
 						[OPCODE_ADVERT, [SIDE_BLUFOR, format [STRING_OBJECTIVE_UNDER_ATTACK, (STRING_OBJECTIVES_NAMES select _i)]]] call Sgc_FNC_BroadcastOpcode;
 					};
 					objectivesStatus set [_i, STATUS_UNDER_OPFOR_ATTACK];
 				}
 				else
 				{
-					if ((objectivesStatus select _i) != STATUS_UNDER_BLUFOR_ATTACK && (objectivesControl select _i) != OBJECTIVE_OPFOR_CONTROLLED) then {
+					if ((objectivesStatus select _i) != STATUS_UNDER_BLUFOR_ATTACK && ((objectivesControl select _i) == OBJECTIVE_OPFOR_CONTROLLED || (objectivesControl select _i) == OBJECTIVE_NOT_CONTROLLED)) then {
 						[OPCODE_ADVERT, [SIDE_OPFOR, format [STRING_OBJECTIVE_UNDER_ATTACK, (STRING_OBJECTIVES_NAMES select _i)]]] call Sgc_FNC_BroadcastOpcode;
 					};
 					objectivesStatus set [_i, STATUS_UNDER_BLUFOR_ATTACK];

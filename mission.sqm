@@ -1580,7 +1580,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=26;
+		items=35;
 		class Item0
 		{
 			position[]={1872.9611,38.070721,2095.5537};
@@ -1667,9 +1667,9 @@ class Mission
 		};
 		class Item10
 		{
-			position[]={3639.6011,35.738625,2529.322};
+			position[]={2195.3838,54.264702,4512.5781};
 			name="markerRestrictedZoneBothText";
-			text="Zona restringida";
+			text="Restricted zone";
 			type="mil_dot";
 			colorName="ColorGreen";
 		};
@@ -1760,9 +1760,9 @@ class Mission
 		};
 		class Item19
 		{
-			position[]={1414.2057,37.852982,2525.1069};
+			position[]={2273.6167,51.358162,501.16864};
 			name="markerRestrictedZoneBothText_1";
-			text="Zona restringida";
+			text="Restricted zone";
 			type="mil_dot";
 			colorName="ColorGreen";
 		};
@@ -1825,6 +1825,75 @@ class Mission
 			text="Tickets [0/0]";
 			type="o_empty";
 			colorName="ColorBlueStrong";
+		};
+		class Item26
+		{
+			position[]={1400.5961,65.915306,5799.9399};
+			name="markeExplanation1";
+			text="Welcome to Tanks of World Beta!";
+			type="mil_box";
+		};
+		class Item27
+		{
+			position[]={1399.8861,69.22776,5700.3447};
+			name="markeExplanation1_1";
+			text="Please bear in mind that this is a beta and can have bugs.";
+			type="mil_box";
+		};
+		class Item28
+		{
+			position[]={1402.4211,81.283516,5499.5659};
+			name="markeExplanation1_2";
+			text="You can:";
+			type="mil_box";
+			colorName="ColorBlue";
+		};
+		class Item29
+		{
+			position[]={1499.9373,85.678474,5400.1855};
+			name="markeExplanation1_2_1";
+			text="Use any tank you want (heavier tank = more respawn time)";
+			type="mil_dot";
+			colorName="ColorBlue";
+		};
+		class Item30
+		{
+			position[]={1500.1981,89.605278,5301.0679};
+			name="markeExplanation1_2_2";
+			text="Use infantry with anti-tank weapons. Search for them in the ammo boxes in your base.";
+			type="mil_dot";
+			colorName="ColorBlue";
+		};
+		class Item31
+		{
+			position[]={1400.9299,91.31028,5201.3521};
+			name="markeExplanation1_2_3";
+			text="You can't:";
+			type="mil_box";
+			colorName="ColorRed";
+		};
+		class Item32
+		{
+			position[]={1500.1981,90.845398,5099.7729};
+			name="markeExplanation1_2_2_1";
+			text="Camp the enemy base directly.";
+			type="mil_dot";
+			colorName="ColorRed";
+		};
+		class Item33
+		{
+			position[]={1500.3169,90.627983,5000.0659};
+			name="markeExplanation1_2_2_1_1";
+			text="Take objectives with infantry only (this is blocked server-side)";
+			type="mil_dot";
+			colorName="ColorRed";
+		};
+		class Item34
+		{
+			position[]={1401.0909,74.293961,5601.5479};
+			name="markeExplanation1_1_1";
+			text="First team that runs out of tickets loses the game. Each conquered base eliminates 1 enemy ticket per 5 seconds.";
+			type="mil_box";
 		};
 	};
 	class Sensors
