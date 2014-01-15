@@ -1,3 +1,9 @@
+/*
+ * This script controls the tickets left for each team and updates the clients accordingly.
+ * 
+ * @author [SGC] Ankso
+ */
+
 while {true} do
 {
 	// Just get the number of controlled points for each side and deduct 1 ticket per enemy controlled flag.

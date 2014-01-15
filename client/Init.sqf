@@ -1,5 +1,7 @@
 /******************************************
  * CLIENT INITIALIZATION
+ *
+ * @author [SGC] Ankso
  ******************************************/
 
 execVM "client\CommunicationFunctions.sqf";

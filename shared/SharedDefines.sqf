@@ -1,20 +1,27 @@
 /*
+ * Shared definitions, of different variables used all over the mission, both server
+ * side and client side.
+ *
+ * @author [SGC] Ankso
+ */
+
+/*
  * These are params can be changed to match your needs. However,
  * they'll have an important impact in the gameplay.
  */
 
 // In meters. Maximun distance within a player will start capturing a zone.
-MAX_CAPTURE_DISTANCE   = 100;
+MAX_CAPTURE_DISTANCE   = paramsArray select 0;
 
 // Objectives percentage max (Axis positive percentage, allies negative percentage). This is also the number of seconds required to take an objective.
-MAX_PERCENTAGE_OPFOR   = 100;
-MAX_PERCENTAGE_BLUFOR  = -100;
+MAX_PERCENTAGE_OPFOR   = paramsArray select 1;
+MAX_PERCENTAGE_BLUFOR  = (paramsArray select 1) * -1;
 
 // Max number of tickets each team will have
-MAX_TEAM_TICKETS       = 1000;
+MAX_TEAM_TICKETS       = paramsArray select 2;
 
 // In seconds. Maximun game duration if none of the teams manage to capture all the objectives.
-MAX_GAME_DURATION      = 3600;
+MAX_GAME_DURATION      = paramsArray select 3;
 
 // Flags classnames, you can change the teams flags here
 FLAG_CLASSNAME_OPFOR   = "FlagCarrierOPFOR_EP1";

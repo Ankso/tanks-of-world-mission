@@ -1,4 +1,11 @@
-Sgc_FNC_HandleOpcode = {
+/*
+ * This functions are used for server-client communication. Basically, they update the client
+ * when the server requires so.
+ * 
+ * @author [SGC] Ankso
+ */
+
+SGC_fnc_HandleOpcode = {
 	_opcode = _this select 0;
 	_params = _this select 1;
 
@@ -7,31 +14,31 @@ Sgc_FNC_HandleOpcode = {
 			Diag_log "SGC_DEBUG_ERROR: Called unused opcode OPCODE_NONE.";
 		};
 		case OPCODE_DEBUG: {
-			_params call Sgc_FNC_DebugLog;
+			_params call SGC_fnc_DebugLog;
 		};
 		case OPCODE_HINT: {
-			_params call Sgc_FNC_SendHint;
+			_params call SGC_fnc_SendHint;
 		};
 		case OPCODE_MESSAGE: {
-			_params call Sgc_FNC_SendMessage;
+			_params call SGC_fnc_SendMessage;
 		};
 		case OPCODE_ADVERT: {
-			_params call Sgc_FNC_SendAdvert;
+			_params call SGC_fnc_SendAdvert;
 		};
 		case OPCODE_UPDATE_MARKERS: {
-			_params call Sgc_FNC_UpdateMarkers;
+			_params call SGC_fnc_UpdateMarkers;
 		};
 		case OPCODE_UPDATE_TICKETS: {
-			_params call Sgc_FNC_UpdateTickets;
+			_params call SGC_fnc_UpdateTickets;
 		};
 		case OPCODE_END_MISSION: {
-			_params call Sgc_FNC_EndMission;
+			_params call SGC_fnc_EndMission;
 		};
 		default { Diag_log format ["SGC_DEBUG_ERROR: Received invalid opcode: %1, with params: %2.", _opcode, _params]; };
 	};
 };
 
-Sgc_FNC_DebugLog = {
+SGC_fnc_DebugLog = {
 	_message = _this select 0;
 	if (side player == East) then {
 		[East, "HQ"] sideChat format ["SGC_DEBUG_LOG: %1", _message];
@@ -41,11 +48,11 @@ Sgc_FNC_DebugLog = {
 	Diag_log format ["SGC_DEBUG_LOG: %1", _message];
 };
 
-Sgc_FNC_SendHint = {
+SGC_fnc_SendHint = {
 	hint _this;
 };
 
-Sgc_FNC_SendMessage = {
+SGC_fnc_SendMessage = {
 	if (side player == East) then {
 		[East, "HQ"] sideChat format ["%1", _this];
 	} else {
@@ -53,7 +60,7 @@ Sgc_FNC_SendMessage = {
 	};
 };
 
-Sgc_FNC_SendAdvert = {
+SGC_fnc_SendAdvert = {
 	_side = _this select 0;
 	_message = _this select 1;
 	_playerSide = SIDE_BOTH;
@@ -67,7 +74,7 @@ Sgc_FNC_SendAdvert = {
 	};
 };
 
-Sgc_FNC_UpdateMarkers = {
+SGC_fnc_UpdateMarkers = {
 	{
 		// Set marker color
 		if (_x == 0) then {
@@ -91,7 +98,7 @@ Sgc_FNC_UpdateMarkers = {
 	} forEach _this;
 };
 
-Sgc_FNC_UpdateTickets = {
+SGC_fnc_UpdateTickets = {
 	_bluforTickets = _this select SIDE_BLUFOR;
 	_opforTickets = _this select SIDE_OPFOR;
 	if (_bluforTickets < 0) then {
@@ -112,7 +119,7 @@ Sgc_FNC_UpdateTickets = {
 	};
 };
 
-Sgc_FNC_EndMission = {
+SGC_fnc_EndMission = {
 	_winner = _this select 0;
 	_playerSide = SIDE_BOTH;
 	// End the mission as winner if that's so.

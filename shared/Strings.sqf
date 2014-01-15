@@ -1,5 +1,7 @@
 /*
  * Strings initialization. To display info on the clients.
+ *
+ * @author [SGC] Ankso
  */
 
 // You can change this to match your map if you want (For example, Kabanino, Airfield, etc...)

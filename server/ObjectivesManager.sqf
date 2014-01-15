@@ -2,6 +2,8 @@
  * This scripts keeps checking the player's distance to the 5 objectives during all the mission.
  * If a player is within MAX_CAPTURE_DISTANCE from an objective, this script will activate the
  * required procedures to start capturing it.
+ *
+ * @author [SGC] Ankso
  */
 
 while {true} do
