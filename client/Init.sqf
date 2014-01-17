@@ -4,8 +4,14 @@
  * @author [SGC] Ankso
  ******************************************/
 
+// This stores the objectives status (not attacked, under OPFOR/BLUFOR attack) and captured percentage.
+clientObjectivesStatus = [STATUS_NOT_ATTACKED, STATUS_NOT_ATTACKED, STATUS_NOT_ATTACKED, STATUS_NOT_ATTACKED, STATUS_NOT_ATTACKED];
+clientObjectivesPercentage = [0, 0, 0, 0, 0];
+
 execVM "client\CommunicationFunctions.sqf";
 execVM "client\VehicleControlManager.sqf";
+execVM "client\MarkersManager.sqf";
+
 
 // Initialize markers
 // Flags markers

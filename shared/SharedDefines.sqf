@@ -66,9 +66,10 @@ OPCODE_DEBUG          = 1;
 OPCODE_HINT           = 2;
 OPCODE_MESSAGE        = 3;
 OPCODE_ADVERT         = 4;
-OPCODE_UPDATE_MARKERS = 5;
-OPCODE_UPDATE_TICKETS = 6;
-OPCODE_END_MISSION    = 7;
+OPCODE_UPDATE_STATUS  = 5;
+OPCODE_UPDATE_MARKERS = 6;
+OPCODE_UPDATE_TICKETS = 7;
+OPCODE_END_MISSION    = 8;
 
 // Side enums, this is used to handle who receives a message
 SIDE_BLUFOR = 0;

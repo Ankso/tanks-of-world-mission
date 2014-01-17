@@ -44,6 +44,8 @@ while {true} do
 	if (_opforWins) then
 	{
 		[OPCODE_ADVERT, [SIDE_BOTH, format [STRING_WIN_MESSAGE, STRING_OPFOR]]] call SGC_fnc_BroadcastOpcode;
+        [OPCODE_MESSAGE, [SIDE_OPFOR, STRING_VICTORY]] call SGC_fnc_BroadcastOpcode;
+        [OPCODE_MESSAGE, [SIDE_BLUFOR, STRING_DEFEAT]] call SGC_fnc_BroadcastOpcode;
 		sleep 5;
 		[nil,nil,rENDMISSION,"End1"] call RE;
 		endMission "END1";
@@ -51,12 +53,15 @@ while {true} do
 	if (_bluforWins) then
 	{
 		[OPCODE_ADVERT, [SIDE_BOTH, format [STRING_WIN_MESSAGE, STRING_BLUFOR]]] call SGC_fnc_BroadcastOpcode;
+        [OPCODE_MESSAGE, [SIDE_BLUFOR, STRING_VICTORY]] call SGC_fnc_BroadcastOpcode;
+        [OPCODE_MESSAGE, [SIDE_OPFOR, STRING_DEFEAT]] call SGC_fnc_BroadcastOpcode;
 	    sleep 5;
 		[nil,nil,rENDMISSION,"End1"] call RE;
 		endMission "END1";
 	};
 	if (_isTie) then {
 		[OPCODE_ADVERT, [SIDE_BOTH, format [STRING_TIE_MESSAGE]]] call SGC_fnc_BroadcastOpcode;
+        [OPCODE_MESSAGE, [SIDE_BOTH, STRING_TIE_MESSAGE]] call SGC_fnc_BroadcastOpcode;
 		sleep 5;
 		[nil,nil,rENDMISSION,"End1"] call RE;
 		endMission "END1";

@@ -33,7 +33,7 @@ class Mission
 	randomSeed=3087453;
 	class Intel
 	{
-		briefingName="[SGC] Tanks of World v1.1.4 (Neaville Winter)";
+		briefingName="[SGC] Tanks of World v1.1.5 (Neaville Winter)";
 		startWeather=0.25;
 		forecastWeather=0.25;
 		year=2008;
@@ -72,7 +72,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2414.4421,39.743046,4057.1021};
+					position[]={2414.5149,39.739616,4057.1028};
 					azimut=-181.35201;
 					id=1;
 					side="EAST";

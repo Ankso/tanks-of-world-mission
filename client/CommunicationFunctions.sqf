@@ -9,6 +9,8 @@ SGC_fnc_HandleOpcode = {
 	_opcode = _this select 0;
 	_params = _this select 1;
 
+    // Uncomment this for debug
+    format ["Received opcode %1 with data: %2", _opcode, _params] call SGC_fnc_DebugLog;
 	switch (_opcode) do {
 		case OPCODE_NONE: {
 			Diag_log "SGC_DEBUG_ERROR: Called unused opcode OPCODE_NONE.";
@@ -25,6 +27,9 @@ SGC_fnc_HandleOpcode = {
 		case OPCODE_ADVERT: {
 			_params call SGC_fnc_SendAdvert;
 		};
+        case OPCODE_UPDATE_STATUS: {
+            _params call SGC_fnc_UpdateStatus;
+        };
 		case OPCODE_UPDATE_MARKERS: {
 			_params call SGC_fnc_UpdateMarkers;
 		};
@@ -39,7 +44,7 @@ SGC_fnc_HandleOpcode = {
 };
 
 SGC_fnc_DebugLog = {
-	_message = _this select 0;
+	_message = _this;
 	if (side player == East) then {
 		[East, "HQ"] sideChat format ["SGC_DEBUG_LOG: %1", _message];
 	} else {
@@ -74,28 +79,14 @@ SGC_fnc_SendAdvert = {
 	};
 };
 
+SGC_fnc_UpdateStatus = {
+    // This syncs the objectives status with the server.
+    clientObjectivesStatus = _this;
+};
+
 SGC_fnc_UpdateMarkers = {
-	{
-		// Set marker color
-		if (_x == 0) then {
-			format ["marker%1", (OBJECTIVES_NAMES select _forEachIndex)] setMarkerColor "ColorGreen";
-			format ["marker%1Area", (OBJECTIVES_NAMES select _forEachIndex)] setMarkerColor "ColorGreen";
-		};
-		if (_x > 0) then {
-			format ["marker%1", (OBJECTIVES_NAMES select _forEachIndex)] setMarkerColor "ColorRed";
-			format ["marker%1Area", (OBJECTIVES_NAMES select _forEachIndex)] setMarkerColor "ColorRed";
-		};
-		if (_x < 0) then {
-			format ["marker%1", (OBJECTIVES_NAMES select _forEachIndex)] setMarkerColor "ColorBlue";
-			format ["marker%1Area", (OBJECTIVES_NAMES select _forEachIndex)] setMarkerColor "ColorBlue";
-		};
-		// Show positive number also with allies
-		// We can safely change the _x value as this is only used once client side
-		if (_x < 0) then {
-			_x = _x * -1;
-		};
-		format ["marker%1", (OBJECTIVES_NAMES select _forEachIndex)] setMarkerText format ["%1 [%2/%3]", (STRING_OBJECTIVES_NAMES select _forEachIndex), _x, MAX_PERCENTAGE_OPFOR];
-	} forEach _this;
+    // This function can be called from the server to force syncronization.
+	clientObjectivesPercentage = _this;
 };
 
 SGC_fnc_UpdateTickets = {

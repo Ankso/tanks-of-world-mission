@@ -19,7 +19,6 @@ while {true} do
 				// If the objective is being taken by OPFOR add 1 point each second...
 				if ((objectivesPercentage select _i) < MAX_PERCENTAGE_OPFOR) then {
 					objectivesPercentage set [_i, (objectivesPercentage select _i) + 1];
-					_sendUpdateMarkers = true;
 				};
 			}
 			else
@@ -27,7 +26,6 @@ while {true} do
 				// ...else deduct 1 point.
 				if ((objectivePercentage select _i) > MAX_PERCENTAGE_BLUFOR) then {
 					objectivesPercentage set [_i, (objectivesPercentage select _i) - 1];
-					_sendUpdateMarkers = true;
 				};
 			};
 		};
@@ -37,12 +35,10 @@ while {true} do
 			if ((objectivesPercentage select _i) > 0) then
 			{
 				objectivesPercentage set [_i, (objectivesPercentage select _i) - 1];
-				_sendUpdateMarkers = true;
 			};
 			if ((objectivesPercentage select _i) < 0) then
 			{
 				objectivesPercentage set [_i, (objectivesPercentage select _i) + 1];
-				_sendUpdateMarkers = true;
 			};
 		};
 		// And finally, if the counter reachs MAX_PERCENTAGE_OPFOR or MAX_PERCENTAGE_BLUFOR, capture the point (if it hasn't been captured yet)
@@ -55,23 +51,26 @@ while {true} do
 			// A function is needed because we need an asymetric call to stop 0.1 seconds between deleting the old flag and creating the new one.
 			// Like this, the main script keeps it's 1 second check time.
 			FLAG_CLASSNAME_OPFOR call SGC_fnc_ChangeObjectiveFlag;
+            // Update client only one the objective is captured.
+            _sendUpdateMarkers = true;
 		};
 		if (((objectivesPercentage select _i) == MAX_PERCENTAGE_BLUFOR) && ((objectivesControl select _i) != OBJECTIVE_BLUFOR_CONTROLLED)) then
 		{
 			objectivesControl set [_i, OBJECTIVE_BLUFOR_CONTROLLED];
 			[OPCODE_ADVERT, [SIDE_BOTH, format [STRING_OBJECTIVE_TAKEN, (STRING_OBJECTIVES_NAMES select _i), STRING_BLUFOR]]] call SGC_fnc_BroadcastOpcode;
 			FLAG_CLASSNAME_BLUFOR call SGC_fnc_ChangeObjectiveFlag;
+            _sendUpdateMarkers = true;
 		};
 		if ((objectivesPercentage select _i) == 0 && (objectivesControl select _i) != OBJECTIVE_NOT_CONTROLLED) then
 		{
 			objectivesControl set [_i, OBJECTIVE_NOT_CONTROLLED];
 			FLAG_CLASSNAME_NEUTRAL call SGC_fnc_ChangeObjectiveFlag;
+            _sendUpdateMarkers = true;
 		};
 	};
 	// Update the client markers if needed
 	if (_sendUpdateMarkers) then {
 		[OPCODE_UPDATE_MARKERS, objectivesPercentage] call SGC_fnc_BroadcastOpcode;
-		_sendUpdateMarkers = false;
 	};
 	// You can uncomment this for debug.
 	// [OPCODE_MESSAGE, format ["Status: %1, Percentages: %2, Players: %3, Control: %4", objectivesStatus, objectivesPercentage, objectivesPlayers, objectivesControl]] call SGC_fnc_BroadcastOpcode;
