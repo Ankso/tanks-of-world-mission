@@ -11,7 +11,6 @@ while {true} do {
         _tank lockTurret [[0], true];
         _tank lockTurret [[0,0], true];
         _tank lockCargo true;
-        _tank removeAllMPEventHandlers "MPKilled";
         enableSentences false;
         // _unit allowDamage false;
         // player action ["EngineOn", _tank];
