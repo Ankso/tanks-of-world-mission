@@ -28,7 +28,7 @@ objectivesPositions = [
 	getMarkerPos "markerEchoArea"
 ];
 // For debug purposes on local machines use this instead of playableUnits.
-// onlinePlayers = [player1];
+ onlinePlayers = [player1];
 
 // Initialize tickets counters
 teamTickets = [MAX_TEAM_TICKETS, MAX_TEAM_TICKETS];

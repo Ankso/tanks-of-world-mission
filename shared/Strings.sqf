@@ -9,6 +9,7 @@ STRING_OBJECTIVES_NAMES = ["Alpha", "Bravo", "Charlie", "Delta", "Echo"];
 
 // Message strings
 STRING_OBJECTIVE_UNDER_ATTACK = "Objective %1 is under attack!";
+STRING_ATTACKING_OBJECTIVE    = "We are attacking objective %1!";
 STRING_OBJECTIVE_TAKEN        = "The objective %1 has been taken by the %2!";
 STRING_OBJECTIVE_LOST         = "We have lost objective %1!";
 STRING_RETURN_TO_BATTLEFIELD  = "Return to the battlefield!";
@@ -20,3 +21,7 @@ STRING_TIME_REMAINING         = "%1 minutes until the battle ends!";
 STRING_TICKETS_LEFT           = "We only have %1 tickets left!";
 STRING_BLUFOR                 = "Allies";
 STRING_OPFOR                  = "Axis";
+STRING_ONE_MAN_CREW_SWITCH    = "Enable/disable one man crew";
+STRING_ONE_MAN_CREW_ENABLED   = "One man crew is now enabled.";
+STRING_ONE_MAN_CREW_DISABLED  = "One man crew is now disabled.";
+STRING_ONE_MAN_CREW_LOCKED    = "You can't do that while in a vehicle.";

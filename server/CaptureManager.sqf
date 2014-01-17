@@ -17,7 +17,7 @@ while {true} do
 			if ((objectivesStatus select _i) == STATUS_UNDER_OPFOR_ATTACK) then 
 			{
 				// If the objective is being taken by OPFOR add 1 point each second...
-				if ((objectivesControl select _i) != OBJECTIVE_OPFOR_CONTROLLED) then {
+				if ((objectivesPercentage select _i) < MAX_PERCENTAGE_OPFOR) then {
 					objectivesPercentage set [_i, (objectivesPercentage select _i) + 1];
 					_sendUpdateMarkers = true;
 				};
@@ -25,7 +25,7 @@ while {true} do
 			else
 			{
 				// ...else deduct 1 point.
-				if ((objectivesControl select _i) != OBJECTIVE_BLUFOR_CONTROLLED) then {
+				if ((objectivePercentage select _i) > MAX_PERCENTAGE_BLUFOR) then {
 					objectivesPercentage set [_i, (objectivesPercentage select _i) - 1];
 					_sendUpdateMarkers = true;
 				};

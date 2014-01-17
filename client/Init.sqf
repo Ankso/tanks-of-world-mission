@@ -5,6 +5,7 @@
  ******************************************/
 
 execVM "client\CommunicationFunctions.sqf";
+execVM "client\VehicleControlManager.sqf";
 
 // Initialize markers
 // Flags markers
@@ -25,3 +26,9 @@ execVM "client\CommunicationFunctions.sqf";
 // This position is used to move the markers to create a "loading bar" effect
 initialMarkerBluforTicketsPos = getMarkerPos "markerBluforTickets";
 initialMarkerOpforTicketsPos = getMarkerPos "markerOpforTickets";
+
+// Initialize tank control selector
+// The player can switch between control a tank by himself completely (fire, drive, etc at the same time)
+// or man the tank like always (switching between positions or with some friends)
+oneManCrew = true;
+player addAction [STRING_ONE_MAN_CREW_SWITCH, "client\TankControlSelector.sqf", nil, 0, false, true];
