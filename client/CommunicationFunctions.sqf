@@ -10,7 +10,7 @@ SGC_fnc_HandleOpcode = {
 	_params = _this select 1;
 
     // Uncomment this for debug
-    format ["Received opcode %1 with data: %2", _opcode, _params] call SGC_fnc_DebugLog;
+    // format ["Received opcode %1 with data: %2", _opcode, _params] call SGC_fnc_DebugLog;
 	switch (_opcode) do {
 		case OPCODE_NONE: {
 			Diag_log "SGC_DEBUG_ERROR: Called unused opcode OPCODE_NONE.";
