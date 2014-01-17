@@ -1,4 +1,4 @@
-Steel Gamers Tanks of World v1.1.3
+Steel Gamers Tanks of World v1.1.4
 ==================================
 
 Mission for ArmA 2 based on WWII tanks gameplay using Invasion 1944 mod.
