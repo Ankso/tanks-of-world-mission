@@ -4,6 +4,10 @@
  * @author [SGC] Ankso
  ******************************************/
 
+// Initialize server functions
+_handle = [] execVM "server\ServerFunctions.sqf";
+waitUntil {scriptDone _handle};
+
 /*
  * Vars initialization. These aren't constants so they don't belong to SharedDefines.sqf
  */
@@ -46,11 +50,9 @@ objectivesFlags = [];
 // Vehicle respawn script
 // @author: Bake
 // @url: https://bitbucket.org/ArmaBake/vehicle-respawn-script
-_handle = [] execVM "server\vehicle_respawn\init.sqf";
+execVM "server\vehicle_respawn\init.sqf";
 
-_handle = [] execVM "server\ServerFunctions.sqf";
-waitUntil {scriptDone _handle};
-_handle = [] execVM "server\ObjectivesManager.sqf";
-_handle = [] execVM "server\CaptureManager.sqf";
-_handle = [] execVM "server\TicketsManager.sqf";
-_handle = [] execVM "server\CheckWinConditions.sqf";
+execVM "server\ObjectivesManager.sqf";
+execVM "server\CaptureManager.sqf";
+execVM "server\TicketsManager.sqf";
+execVM "server\CheckWinConditions.sqf";

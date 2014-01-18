@@ -15,7 +15,7 @@ while {true} do
                 clientObjectivesPercentage set [_forEachIndex, (clientObjectivesPercentage select _forEachIndex) - 1];
             };
         };
-        if (_x == STATUS_NOT_ATTACKED) then
+        if (_x == STATUS_NOT_ATTACKED && !((clientObjectivesPercentage select _forEachIndex) == MAX_PERCENTAGE_OPFOR || (clientObjectivesPercentage select _forEachIndex) == MAX_PERCENTAGE_BLUFOR)) then
         {
             if ((clientObjectivesPercentage select _forEachIndex) < 0) then
             {
@@ -48,5 +48,6 @@ while {true} do
 		};
 		format ["marker%1", (OBJECTIVES_NAMES select _forEachIndex)] setMarkerText format ["%1 [%2/%3]", (STRING_OBJECTIVES_NAMES select _forEachIndex), _x, MAX_PERCENTAGE_OPFOR];
 	} forEach clientObjectivesPercentage;
+    // Script execution time is negligible here
     sleep 1;
 };

@@ -8,6 +8,7 @@
 
 while {true} do
 {
+    
     // Check if any player has entered the conquest area of any objective.
     {
         for [{_i = 0}, {_i < OBJECTIVES_COUNT}, {_i = _i + 1}] do
@@ -47,11 +48,14 @@ while {true} do
     // Finally make the operations with the status arrays. CaptureManager.sqf will do the rest.
     for [{_i = 0}, {_i < OBJECTIVES_COUNT}, {_i = _i + 1}] do
     {
-        if (count (objectivesPlayers select _i) == 0 && (objectivesStatus select _i) != STATUS_NOT_ATTACKED) then
+        if (count (objectivesPlayers select _i) == 0) then
         {
-            objectivesStatus set [_i, STATUS_NOT_ATTACKED];
-            // Update the client
-            [OPCODE_ADVERT, [SIDE_OPFOR, format [STRING_ATTACKING_OBJECTIVE, (STRING_OBJECTIVES_NAMES select _i)]]] call SGC_fnc_BroadcastOpcode;
+            if ((objectivesStatus select _i) != STATUS_NOT_ATTACKED) then
+            {
+                objectivesStatus set [_i, STATUS_NOT_ATTACKED];
+                // Update the client
+                [OPCODE_UPDATE_STATUS, objectivesStatus] call SGC_fnc_BroadcastOpcode;
+            };
         }
         else
         {
@@ -70,7 +74,7 @@ while {true} do
             if (_opforCount == _bluforCount) then
             {
                 objectivesStatus set [_i, STATUS_TIE_ATTACKED];
-                // We don't need to send a packet here
+                [OPCODE_UPDATE_STATUS, objectivesStatus] call SGC_fnc_BroadcastOpcode;
             }
             else
             {
@@ -97,5 +101,6 @@ while {true} do
             };
         };
     };
-    sleep 1;
+    // 0.95 + time executing the script is aprox 1 second.
+    sleep 0.95;
 };

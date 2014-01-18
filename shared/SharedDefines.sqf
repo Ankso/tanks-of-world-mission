@@ -58,7 +58,7 @@ OBJECTIVE_BLUFOR_CONTROLLED = 2;
 STATUS_NOT_ATTACKED        = 0;
 STATUS_UNDER_OPFOR_ATTACK  = 1;
 STATUS_UNDER_BLUFOR_ATTACK = 2;
-STATUS_TIE_ATTACK          = 3; // When both teams have the same number of players inside a capture area.
+STATUS_TIE_ATTACKED        = 3; // When both teams have the same number of players inside a capture area.
 
 // Opcodes used for server-client communication. This opcodes will "explain" the client what to do.
 OPCODE_NONE           = 0;

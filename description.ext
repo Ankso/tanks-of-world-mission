@@ -1,5 +1,5 @@
 author = "[SGC] Ankso";
-OnLoadName = "[SGC] Tanks of World v1.1.5 (Neaville Winter)";
+OnLoadName = "[SGC] Tanks of World v1.1.6 (Neaville Winter)";
 OnLoadMission = "WWII tanks engaged in a fierce battle.";
 onLoadMissionTime = 1;
 respawn = "BASE";
