@@ -3,14 +3,10 @@
  *
  * @author [SGC] Ankso
  ******************************************/
-
-// This stores the objectives status (not attacked, under OPFOR/BLUFOR attack) and captured percentage.
-clientObjectivesStatus = [STATUS_NOT_ATTACKED, STATUS_NOT_ATTACKED, STATUS_NOT_ATTACKED, STATUS_NOT_ATTACKED, STATUS_NOT_ATTACKED];
-clientObjectivesPercentage = [0, 0, 0, 0, 0];
-
+ 
 execVM "client\CommunicationFunctions.sqf";
 execVM "client\VehicleControlManager.sqf";
-execVM "client\MarkersManager.sqf";
+// execVM "client\MarkersManager.sqf";
 
 
 // Initialize markers
@@ -37,4 +33,11 @@ initialMarkerOpforTicketsPos = getMarkerPos "markerOpforTickets";
 // The player can switch between control a tank by himself completely (fire, drive, etc at the same time)
 // or man the tank like always (switching between positions or with some friends)
 oneManCrew = true;
+tankDriver = objNull;
 player addAction [STRING_ONE_MAN_CREW_SWITCH, "client\TankControlSelector.sqf", nil, 0, false, true];
+player addMPEventHandler ["MPRespawn", {
+    player addAction [STRING_ONE_MAN_CREW_SWITCH, "client\TankControlSelector.sqf", nil, 0, false, true];
+    if (!isNull tankDriver) then {
+        deleteVehicle tankDriver;
+    };
+}];

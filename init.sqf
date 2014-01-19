@@ -1,5 +1,5 @@
 /******************************************
- * Steel Gamers Tanks of World v1.1.3
+ * Steel Gamers Tanks of World v1.1.6
  * WWII Tanks engage a fierce battle for the control of 5 key objectives.
  * 
  * MISSION INITIALIZATION
@@ -23,5 +23,5 @@ if (isServer) then {
 
 // Client initialization.
 if (!isDedicated) then {
-execVM "client\init.sqf";
+    execVM "client\init.sqf";
 };

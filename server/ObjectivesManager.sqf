@@ -8,7 +8,6 @@
 
 while {true} do
 {
-    
     // Check if any player has entered the conquest area of any objective.
     {
         for [{_i = 0}, {_i < OBJECTIVES_COUNT}, {_i = _i + 1}] do
@@ -53,8 +52,6 @@ while {true} do
             if ((objectivesStatus select _i) != STATUS_NOT_ATTACKED) then
             {
                 objectivesStatus set [_i, STATUS_NOT_ATTACKED];
-                // Update the client
-                [OPCODE_UPDATE_STATUS, objectivesStatus] call SGC_fnc_BroadcastOpcode;
             };
         }
         else
@@ -74,7 +71,6 @@ while {true} do
             if (_opforCount == _bluforCount) then
             {
                 objectivesStatus set [_i, STATUS_TIE_ATTACKED];
-                [OPCODE_UPDATE_STATUS, objectivesStatus] call SGC_fnc_BroadcastOpcode;
             }
             else
             {
@@ -85,8 +81,6 @@ while {true} do
                         [OPCODE_ADVERT, [SIDE_BLUFOR, format [STRING_OBJECTIVE_UNDER_ATTACK, (STRING_OBJECTIVES_NAMES select _i)]]] call SGC_fnc_BroadcastOpcode;
                         [OPCODE_ADVERT, [SIDE_OPFOR, format [STRING_ATTACKING_OBJECTIVE, (STRING_OBJECTIVES_NAMES select _i)]]] call SGC_fnc_BroadcastOpcode;
                         objectivesStatus set [_i, STATUS_UNDER_OPFOR_ATTACK];
-                        // Update the client
-                        [OPCODE_UPDATE_STATUS, objectivesStatus] call SGC_fnc_BroadcastOpcode;
                     };
                 }
                 else
@@ -95,7 +89,6 @@ while {true} do
                         [OPCODE_ADVERT, [SIDE_OPFOR, format [STRING_OBJECTIVE_UNDER_ATTACK, (STRING_OBJECTIVES_NAMES select _i)]]] call SGC_fnc_BroadcastOpcode;
                         [OPCODE_ADVERT, [SIDE_BLUFOR, format [STRING_ATTACKING_OBJECTIVE, (STRING_OBJECTIVES_NAMES select _i)]]] call SGC_fnc_BroadcastOpcode;
                         objectivesStatus set [_i, STATUS_UNDER_BLUFOR_ATTACK];
-                        [OPCODE_UPDATE_STATUS, objectivesStatus] call SGC_fnc_BroadcastOpcode;
                     };
                 };
             };

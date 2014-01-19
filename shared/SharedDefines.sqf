@@ -13,8 +13,8 @@
 // paramsArray doesn't exist in local, create some default values when testing
 if (isNil "paramsArray") then {
 	paramsArray = [100, 100, 1000, 1200];
- };
- 
+};
+
 // In meters. Maximun distance within a player will start capturing a zone.
 MAX_CAPTURE_DISTANCE   = paramsArray select 0;
 

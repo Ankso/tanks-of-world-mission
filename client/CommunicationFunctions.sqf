@@ -86,7 +86,27 @@ SGC_fnc_UpdateStatus = {
 
 SGC_fnc_UpdateMarkers = {
     // This function can be called from the server to force syncronization.
-	clientObjectivesPercentage = _this;
+    {
+		// Set marker color
+		if (_x == 0) then {
+			format ["marker%1", (OBJECTIVES_NAMES select _forEachIndex)] setMarkerColor "ColorGreen";
+			format ["marker%1Area", (OBJECTIVES_NAMES select _forEachIndex)] setMarkerColor "ColorGreen";
+		};
+		if (_x > 0) then {
+			format ["marker%1", (OBJECTIVES_NAMES select _forEachIndex)] setMarkerColor "ColorRed";
+			format ["marker%1Area", (OBJECTIVES_NAMES select _forEachIndex)] setMarkerColor "ColorRed";
+		};
+		if (_x < 0) then {
+			format ["marker%1", (OBJECTIVES_NAMES select _forEachIndex)] setMarkerColor "ColorBlue";
+			format ["marker%1Area", (OBJECTIVES_NAMES select _forEachIndex)] setMarkerColor "ColorBlue";
+		};
+		// Show positive number also with allies
+		// We can safely change the _x value as this is only used once client side
+		if (_x < 0) then {
+			_x = _x * -1;
+		};
+		format ["marker%1", (OBJECTIVES_NAMES select _forEachIndex)] setMarkerText format ["%1 [%2/%3]", (STRING_OBJECTIVES_NAMES select _forEachIndex), _x, MAX_PERCENTAGE_OPFOR];
+	} forEach _this;
 };
 
 SGC_fnc_UpdateTickets = {

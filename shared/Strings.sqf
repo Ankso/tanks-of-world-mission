@@ -25,3 +25,5 @@ STRING_ONE_MAN_CREW_SWITCH    = "Enable/disable one man crew";
 STRING_ONE_MAN_CREW_ENABLED   = "One man crew is now enabled.";
 STRING_ONE_MAN_CREW_DISABLED  = "One man crew is now disabled.";
 STRING_ONE_MAN_CREW_LOCKED    = "You can't do that while in a vehicle.";
+STRING_GET_IN_COMMANDER       = "To Commander's seat";
+STRING_GET_IN_GUNNER          = "To gunner's seat";
